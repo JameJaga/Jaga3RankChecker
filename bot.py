@@ -16,16 +16,22 @@ async def on_message(message):
     msg_count = 0
     msgs = await member.history(limit=None).flatten()
     msg_count += len(msgs)
+    
+    
     if message.author.bot:
         return
-    if message.content.startwith(/rcme):
+    
+    
+    if message.content.startwith('/rcme'):
         if(msgs >= 10):
             role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
             await member.add_roles(role)
         if(msgs >= 1000):
             role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)
             await member.add_roles(role)
-    if message.content.startwith(/rcyou):
+            
+            
+    if message.content.startwith('/rcyou'):
         if message.author.guild_permissions.administrator:
             member = message.mentions[0]
             if(msgs >= 10):
