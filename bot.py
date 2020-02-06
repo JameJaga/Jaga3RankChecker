@@ -39,9 +39,9 @@ async def on_message(message):
 			embed = discord.Embed(title="AccessDenied",description = 'You do not have permisson to use this command',color=discord.Colour.from_rgb(255, 0, 0))
             await message.channel.send(embed=embed)
 			if(msgs >= 10):
-				role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)  
-    			await member.add_roles(role)
+			    role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)  
+    		    await member.add_roles(role)
 			if(msgs >= 1000):
-				role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)  
-    			await member.add_roles(role)
+			    role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)  
+    		    await member.add_roles(role)
 client.run(TOKEN)
