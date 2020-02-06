@@ -14,6 +14,7 @@ async def on_message(message):
     guild = message.guild
     member = message.author
     msgs = await member.history(limit=None).flatten()
+    print(msgs)
     msg_count = len(msgs)
     
     
