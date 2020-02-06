@@ -13,9 +13,8 @@ async def on_ready():
 async def on_message(message):
     guild = message.guild
     member = message.author
-    msg_count = 0
     msgs = await member.history(limit=None).flatten()
-    msg_count += len(msgs)
+    msg_count = len(msgs)
     
     
     if message.author.bot:
