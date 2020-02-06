@@ -23,12 +23,14 @@ async def on_message(message):
     
     
     if message.content.startswith('/rcme'):
-        if(msg_count >= 10):
-            role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
-            await member.add_roles(role)
         if(msg_count >= 1000):
             role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)
             await member.add_roles(role)
+        elif(msg_count >= 10):
+            role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
+            await member.add_roles(role)
+        else:
+            printf('doremotassitenaimannji')
             
             
     if message.content.startswith('/rcyou'):
