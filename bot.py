@@ -22,7 +22,7 @@ async def on_message(message):
         return
     
     
-    if message.content.startwith('/rcme'):
+    if message.content.startswith('/rcme'):
         if(msgs >= 10):
             role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
             await member.add_roles(role)
@@ -31,7 +31,7 @@ async def on_message(message):
             await member.add_roles(role)
             
             
-    if message.content.startwith('/rcyou'):
+    if message.content.startswith('/rcyou'):
         if message.author.guild_permissions.administrator:
             member = message.mentions[0]
             if(msgs >= 10):
