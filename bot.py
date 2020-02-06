@@ -13,7 +13,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     guild = message.guild
-	msg_count = 0
+    msg_count = 0
     if message.author.bot:
 		
 	if message.content.startwith(/rcme):
