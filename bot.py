@@ -23,10 +23,10 @@ async def on_message(message):
     
     
     if message.content.startswith('/rcme'):
-        if(msgs >= 10):
+        if(msgs_count >= 10):
             role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
             await member.add_roles(role)
-        if(msgs >= 1000):
+        if(msgs_count >= 1000):
             role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)
             await member.add_roles(role)
             
@@ -34,10 +34,10 @@ async def on_message(message):
     if message.content.startswith('/rcyou'):
         if message.author.guild_permissions.administrator:
             member = message.mentions[0]
-            if(msgs >= 10):
+            if(msgs_count >= 10):
                 role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
                 await member.add_roles(role)
-            if(msgs >= 1000):
+            if(msgs_count >= 1000):
                 role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)
                 await member.add_roles(role)
         else:
