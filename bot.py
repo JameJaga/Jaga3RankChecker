@@ -23,6 +23,7 @@ async def on_message(message):
     
     
     if message.content.startswith('/rcme'):
+        print(msg_count)
         if(msg_count >= 1000):
             role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)
             await member.add_roles(role)
