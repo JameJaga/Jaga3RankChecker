@@ -30,7 +30,7 @@ async def on_message(message):
             role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
             await member.add_roles(role)
         else:
-            printf('doremotassitenaimannji')
+            print('doremotassitenaimannji')
             
             
     if message.content.startswith('/rcyou'):
