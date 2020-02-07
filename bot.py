@@ -16,8 +16,6 @@ async def on_message(message):
     msgs = await user.history().flatten()
     print(msgs)
     msg_count = len(msgs)
-    
-    
     if message.author.bot:
         return
     
@@ -30,9 +28,7 @@ async def on_message(message):
         elif(msg_count >= 10):
             role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
             await member.add_roles(role)
-        else:
-            print('doremotassitenaimannji')
-            
+        
             
     if message.content.startswith('/rcyou'):
         if message.author.guild_permissions.administrator:
