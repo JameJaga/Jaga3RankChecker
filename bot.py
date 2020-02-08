@@ -12,8 +12,8 @@ async def on_ready():
 @client.event
 async def on_message(message):
     guild = message.guild
-    user = message.author
-    msgs = await user.history().flatten()
+    member = message.author
+    msgs = await member.history().flatten()
     print(msgs)
     msg_count = len(msgs)
     if message.author.bot:
