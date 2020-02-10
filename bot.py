@@ -63,8 +63,7 @@ async def on_message(message):
         else:
             embed = discord.Embed(title="AccessDenied",description = 'You do not have permisson to use this command',color=discord.Colour.from_rgb(255, 0, 0))
             await message.channel.send(embed=embed)
-
-    #ここで毎回回数カウント
+            
     member = message.author
     msg_count = 0
     for channel in guild.text_channels:
