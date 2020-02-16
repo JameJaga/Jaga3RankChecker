@@ -5,11 +5,7 @@ TOKEN = os.environ.get("DISCORD_TOKEN")
 
 client = discord.Client()
 
-#バグ修正>既に権限がアルかどうかで弾くプログラムの変数
-role_member = discord.utils.get(guild.roles, name="Member")
-role_vip = discord.utils.get(guild.roles, name='VIP')
-role_supervip = discord.utils.get(guild.roles, name='SuperVIP')
-role_ultravip = discord.utils.get(guild.roles, name='UltraVIP')
+
 
 @client.event
 async def on_ready():
@@ -18,6 +14,11 @@ async def on_ready():
 @client.event
 async def on_message(message):
     guild = message.guild
+    #バグ修正>既に権限がアルかどうかで弾くプログラムの変数
+    role_member = discord.utils.get(guild.roles, name="Member")
+    role_vip = discord.utils.get(guild.roles, name='VIP')
+    role_supervip = discord.utils.get(guild.roles, name='SuperVIP')
+    role_ultravip = discord.utils.get(guild.roles, name='UltraVIP')
     if message.author.bot:
         return
     #/rcコマンド
