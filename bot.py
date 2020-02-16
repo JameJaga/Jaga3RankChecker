@@ -5,6 +5,12 @@ TOKEN = os.environ.get("DISCORD_TOKEN")
 
 client = discord.Client()
 
+#バグ修正>既に権限がアルかどうかで弾くプログラムの変数
+role_member = discord.utils.get(guild.roles, name="Member")
+role_vip = discord.utils.get(guild.roles, name='VIP')
+role_supervip = discord.utils.get(guild.roles, name='SuperVIP')
+role_ultravip = discord.utils.get(guild.roles, name='UltraVIP')
+
 @client.event
 async def on_ready():
     print('We have logged in as  {0.user}'.format(client))
@@ -82,27 +88,31 @@ async def on_message(message):
         msgs = await channel.history().flatten()
         msg_count += sum(msg.author == member for msg in msgs)
     if(msg_count == 10):
-        role = discord.utils.find(lambda r: r.name == '082', member.guild.roles)
-        await member.remove_roles(role)
-        role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
-        await member.add_roles(role)
-        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはMemberに昇格しました！:tada::tada:')
+        if role_member in user.roles:
+            role = discord.utils.find(lambda r: r.name == '082', member.guild.roles)
+            await member.remove_roles(role)
+            role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
+            await member.add_roles(role)
+            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはMemberに昇格しました！:tada::tada:')
     if(msg_count == 1000):
-        role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
-        await member.remove_roles(role)
-        role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)
-        await member.add_roles(role)
-        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはVIPに昇格しました！:tada::tada:')
+        if role_vip in user.roles:
+            role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
+            await member.remove_roles(role)
+            role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)
+            await member.add_roles(role)
+            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはVIPに昇格しました！:tada::tada:')
     if(msg_count == 5000):
-        role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)
-        await member.remove_roles(role)
-        role = discord.utils.find(lambda r: r.name == 'SuperVIP', member.guild.roles)
-        await member.add_roles(role)
-        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはSuperVIPに昇格しました！:tada::tada:')
+        if role_supervip in user.roles:
+            role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)
+            await member.remove_roles(role)
+            role = discord.utils.find(lambda r: r.name == 'SuperVIP', member.guild.roles)
+            await member.add_roles(role)
+            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはSuperVIPに昇格しました！:tada::tada:')
     if(msg_count == 10000):
-        role = discord.utils.find(lambda r: r.name == 'SuperVIP', member.guild.roles)
-        await member.remove_roles(role)
-        role = discord.utils.find(lambda r: r.name == 'UltraVIP', member.guild.roles)
-        await member.add_roles(role)
-        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはUltraVIPに昇格しました！:tada::tada:')
+        if role_ultravip in user.roles:
+            role = discord.utils.find(lambda r: r.name == 'SuperVIP', member.guild.roles)
+            await member.remove_roles(role)
+            role = discord.utils.find(lambda r: r.name == 'UltraVIP', member.guild.roles)
+            await member.add_roles(role)
+            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはUltraVIPに昇格しました！:tada::tada:')
 client.run(TOKEN)
