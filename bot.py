@@ -87,7 +87,8 @@ async def on_message(message):
     msg_count = 0
     for channel in guild.text_channels:
         msgs = await channel.history().flatten()
-        msg_count += sum(msg.author == member for msg in msgs)
+        msg_count2 == sum(msg.author == member for msg in msgs)
+        msg_count += len(msg_count2)
     if(msg_count == 10):
         if role_member in user.roles:
             role = discord.utils.find(lambda r: r.name == '082', member.guild.roles)
