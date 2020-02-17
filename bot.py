@@ -27,8 +27,10 @@ async def on_message(message):
         member = message.author
         msg_count = 0
         for channel in guild.text_channels:
-            msgs = await channel.history().flatten()
-            msg_count += sum(msg.author == member for msg in msgs)
+            msgs = await channel.history(limit=None).flatten()
+            msg_c = sum(msg.author == member for msg in msgs)
+            msg_count = msg_c + msg_count
+            print(msg_count)
         if(msg_count >= 10000):
             role = 'UltraVIP'
             next_role = '<<次のランクアップなし。>>'
@@ -57,8 +59,10 @@ async def on_message(message):
             member = message.mentions[0]
             msg_count = 0
             for channel in guild.text_channels:
-                msgs = await channel.history().flatten()
-                msg_count += sum(msg.author == member for msg in msgs)
+                msgs = await channel.history(limit=None).flatten()
+                msg_c = sum(msg.author == member for msg in msgs)
+                msg_count = msg_c + msg_count
+                print(msg_count)
             if(msg_count >= 10000):
                 role = 'UltraVIP'
                 next_role = '<<次のランクアップなし。>>'
@@ -86,34 +90,36 @@ async def on_message(message):
     member = message.author
     msg_count = 0
     for channel in guild.text_channels:
-        msgs = await channel.history().flatten()
-        msg_count += sum(msg.author == member for msg in msgs)
+        msgs = await channel.history(limit=None).flatten()
+        msg_c = sum(msg.author == member for msg in msgs)
+        msg_count = msg_c + msg_count
+        print(msg_count)
     if(msg_count == 10):
-        if role_member in user.roles:
+        if role_member in member.roles:
             role = discord.utils.find(lambda r: r.name == '082', member.guild.roles)
             await member.remove_roles(role)
             role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
             await member.add_roles(role)
             await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはMemberに昇格しました！:tada::tada:')
     if(msg_count == 1000):
-        if role_vip in user.roles:
+        if role_vip in member.roles:
             role = discord.utils.find(lambda r: r.name == 'Member', member.guild.roles)
             await member.remove_roles(role)
             role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)
             await member.add_roles(role)
             await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはVIPに昇格しました！:tada::tada:')
     if(msg_count == 5000):
-        if role_supervip in user.roles:
+        if role_supervip in member.roles:
             role = discord.utils.find(lambda r: r.name == 'VIP', member.guild.roles)
             await member.remove_roles(role)
             role = discord.utils.find(lambda r: r.name == 'SuperVIP', member.guild.roles)
             await member.add_roles(role)
             await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはSuperVIPに昇格しました！:tada::tada:')
     if(msg_count == 10000):
-        if role_ultravip in user.roles:
+        if role_ultravip in member.roles:
             role = discord.utils.find(lambda r: r.name == 'SuperVIP', member.guild.roles)
             await member.remove_roles(role)
             role = discord.utils.find(lambda r: r.name == 'UltraVIP', member.guild.roles)
             await member.add_roles(role)
-            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはUltraVIPに昇格しました！:tada::tada:')
+            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんはUltraVIPに昇格しました！:tada::tada:')        
 client.run(TOKEN)
