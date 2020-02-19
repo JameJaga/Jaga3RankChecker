@@ -221,4 +221,4 @@ async def on_message(message):
             await member.add_roles(role)
             await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
 
-client.run('Njc3MDYyODM4MjgzNDAzMjY0.XkZb_g.PiPVL40RHLQi8B4uDRowkYxJm-g')
+client.run(TOKEN)
