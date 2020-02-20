@@ -5,19 +5,6 @@ TOKEN = os.environ.get("DISCORD_TOKEN")
 
 client = discord.Client()
 
-levelup_guest = 0
-levelup_regular = 0
-levelup_bronze = 0
-levelup_silver = 0
-levelup_gold = 0
-levelup_platinum = 0
-levelup_diamond = 0
-levelup_vip = 0
-levelup_svup = 0
-levelup_uvip = 0
-levelup_mage = 0
-levelup_god = 0
-
 @client.event
 async def on_ready():
     print('We have logged in as  {0.user}'.format(client))
