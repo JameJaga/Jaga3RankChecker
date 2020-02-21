@@ -129,7 +129,6 @@ async def on_message(message):
         msgs = await channel.history(limit=None).flatten()
         msg_c = sum(msg.author == member for msg in msgs)
         msg_count = msg_c + msg_count
-        print(msg_count)
     if(msg_count == levelup_regular):
         if role_regular in member.roles:
             role = discord.utils.get(guild.roles, name="Guest")
