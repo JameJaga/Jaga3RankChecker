@@ -192,7 +192,7 @@ async def on_message(message):
         await member.remove_roles(role)
         role = discord.utils.get(guild.roles, name="SuperVIP")
         await member.add_roles(role)
-    await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
+        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
     if(msg_count == levelup_uvip):
         if role_regular in member.roles:
             return
