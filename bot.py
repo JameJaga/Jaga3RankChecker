@@ -131,80 +131,91 @@ async def on_message(message):
         msg_count = msg_c + msg_count
     if(msg_count == levelup_regular):
         if role_regular in member.roles:
-            role = discord.utils.get(guild.roles, name="Guest")
-            await member.remove_roles(role)
-            role = discord.utils.get(guild.roles, name="Regular")
-            await member.add_roles(role)
-            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
+            return
+        role = discord.utils.get(guild.roles, name="Guest")
+        await member.remove_roles(role)
+        role = discord.utils.get(guild.roles, name="Regular")
+        await member.add_roles(role)
+        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
     if(msg_count == levelup_bronze):
         if role_regular in member.roles:
-            role = discord.utils.get(guild.roles, name="Regular")
-            await member.remove_roles(role)
-            role = discord.utils.get(guild.roles, name="Bronze")
-            await member.add_roles(role)
-            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
+            return
+        role = discord.utils.get(guild.roles, name="Regular")
+        await member.remove_roles(role)
+        role = discord.utils.get(guild.roles, name="Bronze")
+        await member.add_roles(role)
+        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
     if(msg_count == levelup_silver):
         if role_regular in member.roles:
-            role = discord.utils.get(guild.roles, name="Bronze")
-            await member.remove_roles(role)
-            role = discord.utils.get(guild.roles, name="Silver")
-            await member.add_roles(role)
-            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
+            return
+        role = discord.utils.get(guild.roles, name="Bronze")
+        await member.remove_roles(role)
+        role = discord.utils.get(guild.roles, name="Silver")
+        await member.add_roles(role)
+        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
     if(msg_count == levelup_gold):
         if role_regular in member.roles:
-            role = discord.utils.get(guild.roles, name="Silver")
-            await member.remove_roles(role)
-            role = discord.utils.get(guild.roles, name="Gold")
-            await member.add_roles(role)
-            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
+            return
+        role = discord.utils.get(guild.roles, name="Silver")
+        await member.remove_roles(role)
+        role = discord.utils.get(guild.roles, name="Gold")
+        await member.add_roles(role)
+        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
     if(msg_count == levelup_platinum):
         if role_regular in member.roles:
-            role = discord.utils.get(guild.roles, name="Gold")
-            await member.remove_roles(role)
-            role = discord.utils.get(guild.roles, name="Platinum")
-            await member.add_roles(role)
-            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
+            return
+        role = discord.utils.get(guild.roles, name="Gold")
+        await member.remove_roles(role)
+        role = discord.utils.get(guild.roles, name="Platinum")
+        await member.add_roles(role)
+        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
     if(msg_count == levelup_diamond):
         if role_regular in member.roles:
-            role = discord.utils.get(guild.roles, name="Platinum")
-            await member.remove_roles(role)
-            role = discord.utils.get(guild.roles, name="Diamond")
-            await member.add_roles(role)
-            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')    
+            return
+        role = discord.utils.get(guild.roles, name="Platinum")
+        await member.remove_roles(role)
+        role = discord.utils.get(guild.roles, name="Diamond")
+        await member.add_roles(role)
+        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')    
     if(msg_count == levelup_vip):
         if role_regular in member.roles:
-            role = discord.utils.get(guild.roles, name="Diamond")
-            await member.remove_roles(role)
-            role = discord.utils.get(guild.roles, name="VIP")
-            await member.add_roles(role)
-            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
+            return
+        role = discord.utils.get(guild.roles, name="Diamond")
+        await member.remove_roles(role)
+        role = discord.utils.get(guild.roles, name="VIP")
+        await member.add_roles(role)
+        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
     if(msg_count == levelup_svip):
         if role_regular in member.roles:
-            role = discord.utils.get(guild.roles, name="VIP")
-            await member.remove_roles(role)
-            role = discord.utils.get(guild.roles, name="SuperVIP")
-            await member.add_roles(role)
-            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
+            return
+        role = discord.utils.get(guild.roles, name="VIP")
+        await member.remove_roles(role)
+        role = discord.utils.get(guild.roles, name="SuperVIP")
+        await member.add_roles(role)
+    await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
     if(msg_count == levelup_uvip):
         if role_regular in member.roles:
-            role = discord.utils.get(guild.roles, name="SuperVIP")
-            await member.remove_roles(role)
-            role = discord.utils.get(guild.roles, name="UltraVIP")
-            await member.add_roles(role)
-            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
+            return
+        role = discord.utils.get(guild.roles, name="SuperVIP")
+        await member.remove_roles(role)
+        role = discord.utils.get(guild.roles, name="UltraVIP")
+        await member.add_roles(role)
+        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
     if(msg_count == levelup_mage):
         if role_regular in member.roles:
-            role = discord.utils.get(guild.roles, name="UltraVIP")
-            await member.remove_roles(role)
-            role = discord.utils.get(guild.roles, name="Mage")
-            await member.add_roles(role)
-            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
+            return
+        role = discord.utils.get(guild.roles, name="UltraVIP")
+        await member.remove_roles(role)
+        role = discord.utils.get(guild.roles, name="Mage")
+        await member.add_roles(role)
+        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
     if(msg_count == levelup_god):
         if role_regular in member.roles:
-            role = discord.utils.get(guild.roles, name="Mage")
-            await member.remove_roles(role)
-            role = discord.utils.get(guild.roles, name="GOD")
-            await member.add_roles(role)
-            await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
+            return
+        role = discord.utils.get(guild.roles, name="Mage")
+        await member.remove_roles(role)
+        role = discord.utils.get(guild.roles, name="GOD")
+        await member.add_roles(role)
+        await message.channel.send(f'**おめでとうございます！！**\n {member.mention} さんは{str(role)}に昇格しました！:tada::tada:')
 
 client.run(TOKEN)
